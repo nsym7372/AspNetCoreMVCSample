@@ -88,7 +88,7 @@ namespace QuickMaster.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Price,Publisher,Sample")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Price,Publisher,Sample,RowVersion")] Book book)
         {
             if (id != book.Id)
             {
@@ -110,7 +110,8 @@ namespace QuickMaster.Controllers
                     }
                     else
                     {
-                        throw;
+                        ModelState.AddModelError(string.Empty, "競合が検出されました");
+                        return View(book);
                     }
                 }
                 return RedirectToAction(nameof(Index));

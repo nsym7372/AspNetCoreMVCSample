@@ -26,6 +26,9 @@ namespace QuickMaster.Models
         [DisplayName("サンプルの有無")]
         public bool Sample { get; set; }
 
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
