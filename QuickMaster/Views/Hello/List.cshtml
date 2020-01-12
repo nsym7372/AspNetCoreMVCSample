@@ -1,0 +1,34 @@
+﻿@model IEnumerable<QuickMaster.Models.Book>
+
+@{
+    Layout = "_MyLayout";
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+<partial name="_Time" />
+
+@await Component.InvokeAsync("List", new { price = 3000 })
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>書籍名</th>
+                <th>価格</th>
+                <th>出版社</th>
+                <th>配布サンプル</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>@i.Title</td>
+                    <td>@i.Price</td>
+                    <td>@i.Publisher</td>
+                    <td>@i.Sample</td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
+
